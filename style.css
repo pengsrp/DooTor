@@ -1,0 +1,41 @@
+body {
+    background: #666;
+    font-family: 'Kanit', sans-serif !important;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif !important;
+}
+
+.bar {
+    font-size: 1.8em;
+}
+
+p {
+    font-size: 1.8em;
+}
+
+.back .add {
+    font-size: 1.8em;
+}
+
+.fontsize {
+    font-size: 1.8em;
+}
+
+.fontsize2 {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+td {
+    width: 25%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    color: #fff;
+}
