@@ -1,0 +1,250 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Doo Tor</title>
+</head>
+
+<body class="bg-dark">
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand bar" style="color: white;">Doo Tor</a>
+    </nav>
+
+
+    <!-- Main Page -->
+    <div class="container mt-5" id="page-main">
+        <div class="row">
+            <div class="col text-center">
+                <a href="#"><img src="img/wish.png" alt="wish" style="width:80%" onclick="mockupClick('page-main','page-wish')">
+                </a>
+                <div class="row mt-2">
+                    <div class="col text-center">
+                        <p class="font-weight-normal" style="color: #fff;">WishList</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col text-center">
+                <a href="#"><img src="img/watch.png" alt="wish" style="width:80% " onclick="mockupClick('page-main','page-watch')">
+                </a>
+                <div class="row mt-2">
+                    <div class="col text-center">
+                        <p class="font-weight-normal" style="color: #fff;">WatchList</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- WishList-->
+    <div class="container mt-3" id="page-wish" style="display: none">
+        <h1><span class="badge badge-dark">WishList</span></h1>
+        <!-- Table -->
+        <div class="row m-1">
+            <table class="table table-dark" id="wish-table">
+                <thead>
+                    <tr>
+                        <th class="fontsize">Title</th>
+                    </tr>
+                </thead>
+
+            </table>
+            <table class="table table-dark" id="wishdata">
+                <thead>
+                    <tr></tr>
+                </thead>
+            </table>
+        </div>
+        <footer>
+            <button type="button" class="btn btn-primary mb-4 mr-4 back" onclick="mockupClick('page-wish','page-main')">Back</button>
+            <button type="button" class="btn btn-primary mb-4 ml-4 mr-4 back" onclick="deletewish()">Delete</button>
+            <button type="button" class="btn btn-primary mb-4 ml-4 add" onclick="mockupClick('page-wish','page-add-wish')">Add</button>
+        </footer>
+    </div>
+
+    <!-- add wish-->
+    <div id="page-add-wish" class="container" style="display: none">
+        <h1><span class="badge badge-dark mt-3">WishList</span></h1>
+        <div class="form-group">
+            <label style="color: #fff; font-size: 1.5em;">Title</label>
+            <textarea type="text" class="form-control" rows="1" id="wishtitle"></textarea>
+        </div>
+        <div class="row mt-1 mb-1">
+            <div class="col text-center">
+                <a class="btn btn-primary" style="color: #fff;" role="button" onclick="mockupClick('page-add-wish','page-wish')">Back</a>
+            </div>
+            <div class="col text-center">
+                <a class="btn btn-primary" style="color: #fff;" role="button" onclick="addwish()">Add WishList</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- WatchList-->
+    <div class="container mt-3" id="page-watch" style="display: none">
+        <h1><span class="badge badge-dark">WatchList</span></h1>
+        <!-- Table -->
+        <div class="row m-1">
+            <table class="table table-dark" id="watch-table">
+                <thead>
+                    <tr>
+                        <th class="fontsize2">Title</th>
+                        <th class="fontsize2">Season</th>
+                        <th class="fontsize2">Episode</th>
+                        <th class="fontsize2">Duration</th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table table-dark" id="watchdata">
+                <thead>
+                    <tr></tr>
+                </thead>
+            </table>
+        </div>
+        <footer>
+            <button type="button" class="btn btn-primary mb-4 mr-4 back" onclick="mockupClick('page-watch','page-main')">Back</button>
+            <button type="button" class="btn btn-primary mb-4 ml-4 mr-4 back" onclick="deletewatch()">Delete</button>
+            <button type="button" class="btn btn-primary mb-4 ml-4 add" onclick="mockupClick('page-watch','page-add-watch')">Add</button>
+        </footer>
+    </div>
+
+    <!-- add watch-->
+    <div id="page-add-watch" class="container" style="display: none">
+        <h1><span class="badge badge-dark mt-3">WatchList</span></h1>
+        <div class="form-group">
+            <label style="color: #fff; font-size: 1.5em;">Title</label>
+            <textarea type="text" class="form-control" rows="1" id="watchtitle"></textarea>
+            <label style="color: #fff; font-size: 1.5em;">Season</label>
+            <textarea type="text" class="form-control" rows="1" id="watchss"></textarea>
+            <label style="color: #fff; font-size: 1.5em;">Episode</label>
+            <textarea type="text" class="form-control" rows="1" id="watchep"></textarea>
+            <label style="color: #fff; font-size: 1.5em;">Duration</label>
+            <textarea type="text" class="form-control" rows="1" id="watchtime"></textarea>
+        </div>
+        <div class="row mt-1 mb-1">
+            <div class="col text-center">
+                <a class="btn btn-primary" style="color: #fff;" role="button" onclick="mockupClick('page-add-watch','page-watch')">Back</a>
+            </div>
+            <div class="col text-center">
+                <a class="btn btn-primary" style="color: #fff;" role="button" onclick="addwatch()">Add WatchList</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- script -->
+    <script type="text/javascript">
+        if (localStorage.getItem("allStudents") === null) {
+            localStorage.setItem("allStudents", "[]");
+        }
+        allStudents = JSON.parse(localStorage.allStudents);
+        displayStudent();
+
+        function mockupClick(pageToHide, pageToShow) {
+            document.querySelector('#' + pageToHide).style.display = "none";
+            document.querySelector('#' + pageToShow).style.display = "block";
+        }
+
+        function addwish() {
+            mockupClick('page-add-wish', 'page-wish');
+            addRow1('wishdata');
+            wishtitle.value = ""
+        }
+
+        function addwatch() {
+            mockupClick('page-add-watch', 'page-watch');
+            addRow2('watchdata');
+            watchtitle.value = ""
+            watchss.value = ""
+            watchep.value = ""
+            watchtime.value = ""
+        }
+
+        var nameArray1 = [];
+        var nameArray2 = [];
+
+        function addRow1(tableID) {
+            if (wishtitle.value != "") {
+                // Get a reference to the table
+                let tableRef = document.getElementById(tableID);
+
+                // Insert a row at the end of the table
+                let newRow = tableRef.insertRow(-1);
+
+                // Insert a cell in the row at index 0
+                let newCell = newRow.insertCell(0);
+                // Append a text node to the cell
+                newCell.innerHTML = document.getElementById('wishtitle').value;
+                nameArray1.push(document.getElementById('wishtitle').value);
+                let newText = document.getElementById('wishtitle').value;
+
+                console.log(nameArray1);
+            } else {
+                alert("กรุณาใส่ชื่อเรื่องที่สนใจ");
+            }
+        }
+
+        function deletewish() {
+            let titlerow = prompt("ใส่แถวที่ต้องการลบ")
+            var rownum = /^[1-20]+$/;
+            if (titlerow != null && titlerow != "" && titlerow.match(rownum)) {
+                document.getElementById("wishdata").deleteRow(titlerow);
+            } else {
+                alert("กรุณาใส่เลขแถวที่ต้องการลบ")
+                return;
+            }
+        }
+
+        function deletewatch() {
+            let titlerow = prompt("ใส่แถวที่ต้องการลบ")
+            var rownum = /^[1-20]+$/;
+            if (titlerow != null && titlerow != "" && titlerow.match(rownum)) {
+                document.getElementById("watchdata").deleteRow(titlerow);
+            } else {
+                alert("กรุณาใส่เลขแถวที่ต้องการลบ")
+                return;
+            }
+        }
+
+        function addRow2(tableID) {
+            if (watchtitle.value != "" && watchss.value != "" && watchep.value != "") {
+                // Get a reference to the table
+                let tableRef = document.getElementById(tableID);
+
+                // Insert a row at the end of the table
+                let newRow = tableRef.insertRow(-1);
+
+                // Insert a cell in the row at index 0
+                let newCell = newRow.insertCell(0);
+                let newCell2 = newRow.insertCell(1);
+                let newCell3 = newRow.insertCell(2);
+                let newCell4 = newRow.insertCell(3);
+                // Append a text node to the cell
+                newCell.innerHTML = document.getElementById('watchtitle').value;
+                newCell2.innerHTML = document.getElementById('watchss').value;
+                newCell3.innerHTML = document.getElementById('watchep').value;
+                newCell4.innerHTML = document.getElementById('watchtime').value;
+                nameArray2.push(document.getElementById('watchtitle').value);
+                let newText = document.getElementById('watchtitle').value;
+                let newText2 = document.getElementById('watchss').value;
+                let newText3 = document.getElementById('watchep').value;
+                let newText4 = document.getElementById('watchtime').value;
+                console.log(nameArray2);
+            } else {
+                alert("กรุณาใส่ข้อมูลให้ครบ");
+            }
+        }
+    </script>
+</body>
+
+
+</html>
