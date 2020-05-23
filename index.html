@@ -143,12 +143,6 @@
 
     <!-- script -->
     <script type="text/javascript">
-        if (localStorage.getItem("allStudents") === null) {
-            localStorage.setItem("allStudents", "[]");
-        }
-        allStudents = JSON.parse(localStorage.allStudents);
-        displayStudent();
-
         function mockupClick(pageToHide, pageToShow) {
             document.querySelector('#' + pageToHide).style.display = "none";
             document.querySelector('#' + pageToShow).style.display = "block";
