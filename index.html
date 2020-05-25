@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Doo Tor</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="shortcut icon" href="img/icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icon.png">
+    <link rel="apple-touch-icon" href="img/icon.png">
+    <meta name="apple-mobile-web-app-title" content="DooTor">
 </head>
 
 <body class="bg-dark" onload="loadData()">
@@ -24,8 +30,7 @@
     <div class="container mt-5" id="page-main">
         <div class="row">
             <div class="col text-center">
-                <a href="#"><img src="img/wish.png" alt="wish" style="width:80%"
-                        onclick="mockupClick('page-main','page-wish')">
+                <a href="#"><img src="img/wish.png" alt="wish" style="width:80%" onclick="mockupClick('page-main','page-wish')">
                 </a>
                 <div class="row mt-2">
                     <div class="col text-center">
@@ -35,8 +40,7 @@
             </div>
 
             <div class="col text-center">
-                <a href="#"><img src="img/watch.png" alt="wish" style="width:80% "
-                        onclick="mockupClick('page-main','page-watch')">
+                <a href="#"><img src="img/watch.png" alt="wish" style="width:80% " onclick="mockupClick('page-main','page-watch')">
                 </a>
                 <div class="row mt-2">
                     <div class="col text-center">
@@ -68,11 +72,9 @@
             </table>
         </div>
         <footer>
-            <button type="button" class="btn btn-primary mb-4 mr-4 back"
-                onclick="mockupClick('page-wish','page-main')">Back</button>
+            <button type="button" class="btn btn-primary mb-4 mr-4 back" onclick="mockupClick('page-wish','page-main')">Back</button>
             <button type="button" class="btn btn-primary mb-4 ml-4 mr-4 back" onclick="deletewish()">Delete</button>
-            <button type="button" class="btn btn-primary mb-4 ml-4 add"
-                onclick="mockupClick('page-wish','page-add-wish')">Add</button>
+            <button type="button" class="btn btn-primary mb-4 ml-4 add" onclick="mockupClick('page-wish','page-add-wish')">Add</button>
         </footer>
     </div>
 
@@ -85,8 +87,7 @@
         </div>
         <div class="row mt-1 mb-1">
             <div class="col text-center">
-                <a class="btn btn-primary" style="color: #fff;" role="button"
-                    onclick="mockupClick('page-add-wish','page-wish')">Back</a>
+                <a class="btn btn-primary" style="color: #fff;" role="button" onclick="mockupClick('page-add-wish','page-wish')">Back</a>
             </div>
             <div class="col text-center">
                 <a class="btn btn-primary" style="color: #fff;" role="button" onclick="addwish()">Add WishList</a>
@@ -116,11 +117,9 @@
             </table>
         </div>
         <footer>
-            <button type="button" class="btn btn-primary mb-4 mr-4 back"
-                onclick="mockupClick('page-watch','page-main')">Back</button>
+            <button type="button" class="btn btn-primary mb-4 mr-4 back" onclick="mockupClick('page-watch','page-main')">Back</button>
             <button type="button" class="btn btn-primary mb-4 ml-4 mr-4 back" onclick="deletewatch()">Delete</button>
-            <button type="button" class="btn btn-primary mb-4 ml-4 add"
-                onclick="mockupClick('page-watch','page-add-watch')">Add</button>
+            <button type="button" class="btn btn-primary mb-4 ml-4 add" onclick="mockupClick('page-watch','page-add-watch')">Add</button>
         </footer>
     </div>
 
@@ -139,8 +138,7 @@
         </div>
         <div class="row mt-1 mb-1">
             <div class="col text-center">
-                <a class="btn btn-primary" style="color: #fff;" role="button"
-                    onclick="mockupClick('page-add-watch','page-watch')">Back</a>
+                <a class="btn btn-primary" style="color: #fff;" role="button" onclick="mockupClick('page-add-watch','page-watch')">Back</a>
             </div>
             <div class="col text-center">
                 <a class="btn btn-primary" style="color: #fff;" role="button" onclick="addwatch()">Add WatchList</a>
@@ -162,6 +160,7 @@
         } else {
             var watchlist = JSON.parse(localStorage.getItem("watchSave"))
         }
+
         function mockupClick(pageToHide, pageToShow) {
             document.querySelector('#' + pageToHide).style.display = "none";
             document.querySelector('#' + pageToShow).style.display = "block";
