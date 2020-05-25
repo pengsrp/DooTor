@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
@@ -11,7 +12,7 @@
     <title>Doo Tor</title>
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark" onload="loadData()">
 
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -23,7 +24,8 @@
     <div class="container mt-5" id="page-main">
         <div class="row">
             <div class="col text-center">
-                <a href="#"><img src="img/wish.png" alt="wish" style="width:80%" onclick="mockupClick('page-main','page-wish')">
+                <a href="#"><img src="img/wish.png" alt="wish" style="width:80%"
+                        onclick="mockupClick('page-main','page-wish')">
                 </a>
                 <div class="row mt-2">
                     <div class="col text-center">
@@ -33,7 +35,8 @@
             </div>
 
             <div class="col text-center">
-                <a href="#"><img src="img/watch.png" alt="wish" style="width:80% " onclick="mockupClick('page-main','page-watch')">
+                <a href="#"><img src="img/watch.png" alt="wish" style="width:80% "
+                        onclick="mockupClick('page-main','page-watch')">
                 </a>
                 <div class="row mt-2">
                     <div class="col text-center">
@@ -65,9 +68,11 @@
             </table>
         </div>
         <footer>
-            <button type="button" class="btn btn-primary mb-4 mr-4 back" onclick="mockupClick('page-wish','page-main')">Back</button>
+            <button type="button" class="btn btn-primary mb-4 mr-4 back"
+                onclick="mockupClick('page-wish','page-main')">Back</button>
             <button type="button" class="btn btn-primary mb-4 ml-4 mr-4 back" onclick="deletewish()">Delete</button>
-            <button type="button" class="btn btn-primary mb-4 ml-4 add" onclick="mockupClick('page-wish','page-add-wish')">Add</button>
+            <button type="button" class="btn btn-primary mb-4 ml-4 add"
+                onclick="mockupClick('page-wish','page-add-wish')">Add</button>
         </footer>
     </div>
 
@@ -80,7 +85,8 @@
         </div>
         <div class="row mt-1 mb-1">
             <div class="col text-center">
-                <a class="btn btn-primary" style="color: #fff;" role="button" onclick="mockupClick('page-add-wish','page-wish')">Back</a>
+                <a class="btn btn-primary" style="color: #fff;" role="button"
+                    onclick="mockupClick('page-add-wish','page-wish')">Back</a>
             </div>
             <div class="col text-center">
                 <a class="btn btn-primary" style="color: #fff;" role="button" onclick="addwish()">Add WishList</a>
@@ -110,9 +116,11 @@
             </table>
         </div>
         <footer>
-            <button type="button" class="btn btn-primary mb-4 mr-4 back" onclick="mockupClick('page-watch','page-main')">Back</button>
+            <button type="button" class="btn btn-primary mb-4 mr-4 back"
+                onclick="mockupClick('page-watch','page-main')">Back</button>
             <button type="button" class="btn btn-primary mb-4 ml-4 mr-4 back" onclick="deletewatch()">Delete</button>
-            <button type="button" class="btn btn-primary mb-4 ml-4 add" onclick="mockupClick('page-watch','page-add-watch')">Add</button>
+            <button type="button" class="btn btn-primary mb-4 ml-4 add"
+                onclick="mockupClick('page-watch','page-add-watch')">Add</button>
         </footer>
     </div>
 
@@ -131,7 +139,8 @@
         </div>
         <div class="row mt-1 mb-1">
             <div class="col text-center">
-                <a class="btn btn-primary" style="color: #fff;" role="button" onclick="mockupClick('page-add-watch','page-watch')">Back</a>
+                <a class="btn btn-primary" style="color: #fff;" role="button"
+                    onclick="mockupClick('page-add-watch','page-watch')">Back</a>
             </div>
             <div class="col text-center">
                 <a class="btn btn-primary" style="color: #fff;" role="button" onclick="addwatch()">Add WatchList</a>
@@ -143,6 +152,16 @@
 
     <!-- script -->
     <script type="text/javascript">
+        if (localStorage.getItem("wishSave") === null) {
+            var wishlist = []
+        } else {
+            var wishlist = JSON.parse(localStorage.getItem("wishSave"))
+        }
+        if (localStorage.getItem("watchSave") === null) {
+            var watchlist = []
+        } else {
+            var watchlist = JSON.parse(localStorage.getItem("watchSave"))
+        }
         function mockupClick(pageToHide, pageToShow) {
             document.querySelector('#' + pageToHide).style.display = "none";
             document.querySelector('#' + pageToShow).style.display = "block";
@@ -152,6 +171,7 @@
             mockupClick('page-add-wish', 'page-wish');
             addRow1('wishdata');
             wishtitle.value = ""
+            localStorage.setItem("wishSave", JSON.stringify(wishlist));
         }
 
         function addwatch() {
@@ -161,12 +181,11 @@
             watchss.value = ""
             watchep.value = ""
             watchtime.value = ""
+            localStorage.setItem("watchSave", JSON.stringify(watchlist));
         }
 
-        var nameArray1 = [];
-        var nameArray2 = [];
-
         function addRow1(tableID) {
+
             if (wishtitle.value != "") {
                 // Get a reference to the table
                 let tableRef = document.getElementById(tableID);
@@ -178,10 +197,10 @@
                 let newCell = newRow.insertCell(0);
                 // Append a text node to the cell
                 newCell.innerHTML = document.getElementById('wishtitle').value;
-                nameArray1.push(document.getElementById('wishtitle').value);
-                let newText = document.getElementById('wishtitle').value;
+                wishlist.push(document.getElementById('wishtitle').value);
+                let newText1 = document.getElementById('wishtitle').value;
 
-                console.log(nameArray1);
+                console.log(wishlist);
             } else {
                 alert("กรุณาใส่ชื่อเรื่องที่สนใจ");
             }
@@ -212,6 +231,7 @@
         function addRow2(tableID) {
             if (watchtitle.value != "" && watchss.value != "" && watchep.value != "") {
                 // Get a reference to the table
+                var arrayList = []
                 let tableRef = document.getElementById(tableID);
 
                 // Insert a row at the end of the table
@@ -227,14 +247,56 @@
                 newCell2.innerHTML = document.getElementById('watchss').value;
                 newCell3.innerHTML = document.getElementById('watchep').value;
                 newCell4.innerHTML = document.getElementById('watchtime').value;
-                nameArray2.push(document.getElementById('watchtitle').value);
+                arrayList.push(document.getElementById('watchtitle').value);
+                arrayList.push(document.getElementById('watchss').value);
+                arrayList.push(document.getElementById('watchep').value);
+                arrayList.push(document.getElementById('watchtime').value);
+                watchlist.push(arrayList)
                 let newText = document.getElementById('watchtitle').value;
                 let newText2 = document.getElementById('watchss').value;
                 let newText3 = document.getElementById('watchep').value;
                 let newText4 = document.getElementById('watchtime').value;
-                console.log(nameArray2);
+                console.log(watchlist);
             } else {
                 alert("กรุณาใส่ข้อมูลให้ครบ");
+            }
+        }
+
+
+        function loadData() {
+            if (localStorage.getItem("wishSave") != null) {
+                var wishlistLoad = JSON.parse(localStorage.getItem("wishSave"))
+                for (var i = 0; i < wishlistLoad.length; i++) {
+                    let tableRef = document.getElementById('wishdata');
+
+                    // Insert a row at the end of the table
+                    let newRow = tableRef.insertRow(-1);
+
+                    // Insert a cell in the row at index 0
+                    let newCell = newRow.insertCell(0);
+                    // Append a text node to the cell
+                    newCell.innerHTML = wishlistLoad[i];
+                }
+            }
+            if (localStorage.getItem("watchSave") != null) {
+                var watchlistLoad = JSON.parse(localStorage.getItem("watchSave"))
+                for (var a = 0; a < watchlistLoad.length; a++) {
+                    let tableRef = document.getElementById('watchdata');
+
+                    // Insert a row at the end of the table
+                    let newRow = tableRef.insertRow(-1);
+
+                    // Insert a cell in the row at index 0
+                    let newCell = newRow.insertCell(0);
+                    let newCell2 = newRow.insertCell(1);
+                    let newCell3 = newRow.insertCell(2);
+                    let newCell4 = newRow.insertCell(3);
+                    // Append a text node to the cell
+                    newCell.innerHTML = watchlistLoad[a][0]
+                    newCell2.innerHTML = watchlistLoad[a][1]
+                    newCell3.innerHTML = watchlistLoad[a][2]
+                    newCell4.innerHTML = watchlistLoad[a][3]
+                }
             }
         }
     </script>
